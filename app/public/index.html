@@ -14,14 +14,14 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-md">
-      <a class="navbar-brand" href="#">Triage App</a>
+      <a class="navbar-brand" href="#">OCFR - Home</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="view_members.html">View Members</a>
@@ -36,94 +36,16 @@
       </div>
     </nav>
 
-    <div class="container-fluid">
-      <div class="row" id="triagePage">
-        <div id="cardPaneLeft" class="col cardPane cardPaneLeft">
-          <form method="post" v-on:submit.prevent="handleNewPtForm">
-            <h3>Create New Patient Record</h3>
+    <h1>Welcome to Oconee county, Georgia!</h1><br>
+    <a href="img/fire_station.jpg">
+      <img src = "img/fire_station.jpg">
+    </a>
+    <p>This station begun in 1801 and has put out over 10,000 fires in the state of Georgia.  We have the finest firemen in the state, and we are proud to support the community in so many ways.​</p><br>
+    <p>If you are new to this department, click here to add yourself as a new member:​</p>
+    <button>Create New Member</button><br>
+    <p>If you have a new certification, click here to add the certification:​</p>
+    <button>Create Certification</button>
 
-            <div class="form-group">
-            <label for="newPtFirstName">First Name</label>
-            <input type="text" v-model="newPtForm.firstName" class="form-control" id="newPtFirstName" placeholder="Jane">
-          </div>
-          <div class="form-group">
-            <label for="newPtLastName">Last Name</label>
-            <input type="text" v-model="newPtForm.lastName" class="form-control" id="newPtLastName" placeholder="Doe">
-          </div>
-          <div class="form-group">
-            <label for="newPtDob">DOB</label>
-            <input type="text" v-model="newPtForm.dob" class="form-control" id="newPtDob" placeholder="2020-01-02">
-          </div>
-          <div class="form-group">
-            <label for="newPtSexAtBirth">Sex at Birth</label>
-            <select class="form-control" v-model="newPtForm.sexAtBirth" id="newPtSexAtBirth">
-              <option value="M">Male</option>
-              <option value="F">Female</option>
-              <option value="O">Other/Unknown</option>
-            </select>
-          </div>
-          <button type="submit" class="btn btn-primary">Create</button>
-
-          </form>
-
-          <h3>List of all patients</h3>
-
-          <div class="patientCard" v-for="pt in ptList" v-on:click="activePt = pt">
-            <span class="lastName">{{ pt.lastName }}</span>,
-            <span clas="firstName">{{ pt.firstName }}</span>
-            <span class="birthDate float-right">{{ pt.dob }}</span>
-          </div>
-
-          <!-- <button v-on:click="yell()">Click Me!</button> -->
-        </div>
-
-        <div class="col-6">
-          <h1>New Visit</h1>
-          <form v-on:submit.prevent="handleTriageForm">
-            <div class="form-group">
-              <label for="ptName">Patient Name</label>
-              <input class="form-control" id="ptName" v-bind:value="activePtName" readonly>
-
-            </div>
-
-          <div class="form-group">
-            <label for="visitDate">Visit Date</label>
-            <input type="text" class="form-control" id="visitDate" placeholder="">
-          </div>
-
-          <div class="form-group">
-            <label for="visitPriority">Priority</label>
-            <select class="form-control" id="visitPriority" v-model="triageForm.priority">
-              <option value="30">Critical</option>
-              <option value="20">Urgent</option>
-              <option value="10">Non-urgent</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="visitSymptoms">Patient Symptoms</label>
-            <textarea class="form-control" id="visitSymptoms" rows="5" v-model="triageForm.symptoms"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-
-        </form>
-        </div>
-        <div class="col cardPane cardPaneRight">
-          <h3>Waiting patients</h3>
-          <div class="patientCard triageCritical" data-patient_id="3" data-visit_id="520">
-            <span class="lastName">Gregory</span>, <span clas="firstName">Tom</span>
-            <span class="birthDate text-right">1978</span>
-          </div>
-          <div class="patientCard triageUrgent" data-patient_id="1" data-visit_id="501">
-            <span class="lastName">Dayton</span>, <span clas="firstName">Keith</span>
-            <span class="birthDate float-right">1980</span>
-          </div>
-          <div class="patientCard triageMinor" data-patient_id="3" data-visit_id="520">
-            <span class="lastName">Prabhakar</span>, <span clas="firstName">Bipin</span>
-            <span class="birthDate text-right">1981</span>
-          </div>
-        </div>
-      </div>
-    </div>
     <!-- END content -->
 
     <!-- Footer? Insert here -->
