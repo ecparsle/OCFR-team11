@@ -1,43 +1,45 @@
-body, h1{
+body{
   background-color: rgb(211,211,211);
   color: rgb(100,100,100);
 }
 
-a {
+h1, h3, a {
   color: black;
 }
 
-#homepage {
-  text-align: center;
-  color: rgb(50,50,50)
-}
 /* Add a black background color to the top navigation */
-.topnav {
-  background-color: #333;
+nav,
+.navbar {
+  background-color: black;
   overflow: hidden;
 }
 
-/* Style the links inside the navigation bar */
-.topnav a {
+.navbar a.navbar-brand,
+.navbar a.nav-link,
+.navbar a.nav-link:visited {
   float: left;
   color: #f2f2f2;
   text-align: center;
-  padding: 14px 16px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 20px;
 }
 
-/* Change the color of links on hover */
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
+.navbar a.nav-link:hover {
+  background-color: firebrick;
+  color: white;
+  text-decoration: underline;
 }
 
-/* Add a color to the active/current link */
-.topnav a.active {
+.navbar a.navbar-brand:hover {
+  background-color: firebrick;
+  color: white;
+  text-decoration: underline;
+}
+
+.navbar a.active {
   background-color: #4CAF50;
   color: white;
-}
+},
 
 th[role=columnheader]:not(.no-sort) {
 	cursor: pointer;
