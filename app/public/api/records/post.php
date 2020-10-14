@@ -19,16 +19,16 @@ $db = DbConnection::getConnection();
 // Step 2: Create & run the query
 // Note the use of parameterized statements to avoid injection
 $stmt = $db->prepare(
-  'INSERT INTO Patient (patientGuid, firstName, lastName, dob, sexAtBirth)
-  VALUES (?, ?, ?, ?, ?)'
+  'INSERT INTO Certification (certificationGuid, agency, name, city, expirationPeriod)
+  VALUES (?,?, ?, ?, ?)'
 );
 
 $stmt->execute([
   $guid,
-  $_POST['firstName'],
-  $_POST['lastName'],
-  $_POST['dob'],
-  $_POST['sexAtBirth']
+  $_POST['agency'],
+  $_POST['name'],
+  $_POST['city'],
+  $_POST['expirationPeriod']
 ]);
 
 // If needed, get auto-generated PK from DB
