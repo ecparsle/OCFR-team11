@@ -1,13 +1,19 @@
 var app = new Vue({
   el: '#triagePage',
   data: {
+    certs:{
+      agency:'',
+      name:'',
+      city:'',
+      expirationPeriod:''
+    },
     ptList: [],
     activePt: null,
     triageForm: {
       priority: null,
       symptoms: ''
     },
-    newPtForm: {}
+    newCtForm: {}
   },
   computed: {
     activePtName() {
@@ -15,22 +21,21 @@ var app = new Vue({
     }
   },
   methods: {
-    newPtData() {
-      return {
-        firstName: "",
-        lastName: "",
-        dob: "",
-        sexAtBirth: ""
-      }
-    },
-    handleNewPtForm( evt ) {
-      // evt.preventDefault();  // Redundant w/ Vue's submit.prevent
-
-      // TODO: Validate the data!
-
+    createCerts(){
+      console.log("reached here");
+      // return {
+        //agency: "",
+        //name: "",
+        //city: "",
+        //expirationPeriod: ""
+       //};
+      console.log(this.certs.agency);
+      console.log(this.certs.name);
+      console.log(this.certs.city);
+      console.log(this.certs.expirationPeriod);
       fetch('api/records/post.php', {
         method:'POST',
-        body: JSON.stringify(this.newPtForm),
+        body: JSON.stringify(this.newCtForm),
         headers: {
           "Content-Type": "application/json; charset=utf-8"
         }
@@ -39,13 +44,41 @@ var app = new Vue({
       .then( json => {
         console.log("Returned from post:", json);
         // TODO: test a result was returned!
-        this.ptList.push(json[0]);
+        this.certs.push(json[0]);
+      });
+      console.log("Great Scott!!!")
+    },
+    //newPtData() {
+      //return {
+        //firstName: "",
+        //lastName: "",
+        //dob: "",
+        //sexAtBirth: ""
+      //}
+    //},
+    handleNewPtForm( evt ) {
+      // evt.preventDefault();  // Redundant w/ Vue's submit.prevent
+
+      // TODO: Validate the data!
+
+      fetch('api/records/post.php', {
+        method:'POST',
+        body: JSON.stringify(this.newCtForm),
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      })
+      .then( response => response.json() )
+      .then( json => {
+        console.log("Returned from post:", json);
+        // TODO: test a result was returned!
+        this.certs.push(json[0]);
       });
 
       console.log("Creating (POSTing)...!");
-      console.log(this.newPtForm);
+      console.log(this.newCtForm);
 
-      this.newPtForm = this.newPtData();
+      this.newCtForm = this.createCerts();
     },
     handleTriageForm( evt ) {
       console.log("Form submitted!");
@@ -59,10 +92,10 @@ var app = new Vue({
     fetch("api/records/")
     .then( response => response.json() )
     .then( json => {
-      this.ptList = json;
+      this.certs = json;
 
       console.log(json)}
     );
-    this.newPtForm = this.newPtData();
+    //this.newCtForm = this.newPtData();
   }
 })
