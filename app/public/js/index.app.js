@@ -7,18 +7,12 @@ var app = new Vue({
       city:'',
       expirationPeriod:''
     },
-    ptList: [],
-    activePt: null,
-    triageForm: {
-      priority: null,
-      symptoms: ''
-    },
+
+
     newCtForm: {}
   },
   computed: {
-    activePtName() {
-      return this.activePt ? this.activePt.lastName + ', ' + this.activePt.firstName : ''
-    }
+
   },
   methods: {
     createCerts(){
