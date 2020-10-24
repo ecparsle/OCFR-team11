@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <!-- my custom CSS goes here -->
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="data:;base64,=">
 
     <title>View Members</title>
   </head>
@@ -48,50 +49,49 @@
 </div>
 
           <!-- <button v-on:click="yell()">Click Me!</button> -->
-          <table id="taskTable" class="table table-bordered table-striped table-hover table-condensed">
+          <div class="container-fluid" id="memberPage">
+            <!--div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">-->
+                        <!-- <button v-on:click="yell()">Click Me!</button> -->
+                  <table id="taskTable" class="table table-bordered table-striped table-hover table-condensed">
 
-                  <thead>
-                      <tr>
-                  <th class="headerSortDown">Member Name </th>
-                  <th class="headerSortUp">Active status</th>
-                  <th class="headerSortUp">Position</th>
-                  <th class="headerSortDown">Radio Number</th>
-                  <th class="headerSortUp">Station Number</th>
-                  <th class="headerSortDown">Phone Number</th>
-                  <th class="headerSortUp">Email</th>
-                  <th class="headerSortUp">Password</th>
-                  <th class="headerSortUp">DOB</th>
-                  <th class="headerSortUp">Gender</th>
-                  <th class="headerSortUp">Start date</th>
+                      <thead>
+                        <tr>
+                            <th class="headerSortDown">First Name</th>
+                            <th class="headerSortDown">Last Name</th>
+                            <th class="headerSortUp">Address</th>
+                            <th class="headerSortDown">Email</th>
+                            <th class="headerSortUp">Password</th>
+                            <th class="headerSortDown">Phone Number</th>
+                            <th class="headerSortUp">DOB</th>
+                            <th class="headerSortDown">Gender</th>
+                            <th class="headerSortUp">Start Date</th>
+                            <th class="headerSortDown">Department Position</th>
+                            <th class="headerSortUp">Radio Number</th>
+                            <th class="headerSortDown">Station Number</th>
+                            <th class="headerSortDown">Active Status</th>
+                        </tr>
+                      </thead>
 
+                      <tbody>
+                        <tr class="members" v-for="member in members">
+                            <td><span class="firstName">{{member.firstName}}</span></td>
+                            <td><span class="lastName">{{member.lastName}}</span></td>
+                            <td><span class="address">{{member.address}}</span></td>
+                            <td><span class="email">{{member.email}}</span></td>
+                            <td><span class="password">{{member.password}}</span></td>
+                            <td><span class="phoneNumber">{{member.phoneNumber}}</span></td>
+                            <td><span class="dob">{{member.dob}}</span></td>
+                            <td><span class="gender">{{member.gender}}</span></td>
+                            <td><span class="startDate">{{member.startDate}}</span></td>
+                            <td><span class="departmentPosition">{{member.departmentPosition}}</span></td>
+                            <td><span class="radioNumber">{{member.radioNumber}}</span></td>
+                            <td><span class="stationNumber">{{member.stationNumber}}</span></td>
+                            <td><span class="isActive">{{member.isActive}}</span></td>
+                        </tr>
+                      </tbody>
+                  </table>
 
-
-
-
-
-                </tr>
-          </thead>
-                 <tbody>
-                     <tr><td></td><td></td><td></td><td></td><td></td><td><td></td><td></td><td></td><td></td><td></td></tr>
-                      <tr><td></td><td></td><td></td><td></td><td></td><td><td></td><td></td><td></td><td></td><td></td></tr>
-                      <tr><td></td><td></td><td></td><td></td><td></td><td><td></td><td></td><td></td><td></td><td></td></tr>
-                      <tr><td></td><td></td><td></td><td></td><td></td><td><td></td><td></td><td></td><td></td><td></td></tr>
-                      <tr><td></td><td></td><td></td><td></td><td></td><td><td></td><td></td><td></td><td></td><td></td></tr>
-                      <tr><td></td><td></td><td></td><td></td><td></td><td><td></td><td></td><td></td><td></td><td></td></tr>
-                      <tr><td></td><td></td><td></td><td></td><td></td><td><td></td><td></td><td></td><td></td><td></td></tr>
-                      <tr><td></td><td></td><td></td><td></td><td></td><td><td></td><td></td><td></td><td></td><td></td></tr>
-                      <tr><td></td><td></td><td></td><td></td><td></td><td><td></td><td></td><td></td><td></td><td></td></tr>
-                      <tr><td></td><td></td><td></td><td></td><td></td><td><td></td><td></td><td></td><td></td><td></td></tr>
-                      <tr><td></td><td></td><td></td><td></td><td></td><td><td></td><td></td><td></td><td></td><td></td></tr>
-                      <tr><td></td><td></td><td></td><td></td><td></td><td><td></td><td></td><td></td><td></td><td></td></tr>
-
-                     </tbody>
-                 <tfoot>
-                 <tr>
-                     </tr>
-                 </tfoot>
-              </table>
-
+              </div><br/>
 
     <!-- END content -->
 
@@ -104,6 +104,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="js/index.app.js"></script>
+    <script src="js/members.js"></script>
   </body>
 </html>
