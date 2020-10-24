@@ -1,23 +1,58 @@
 <?php
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "myDBPDO";
+include "config.php";
 
-try {
-  $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-  // set the PDO error mode to exception
-  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$data = json_decode(file_get_contents("php://input"));
 
-  // sql to delete a record
-  $sql = "DELETE FROM MyGuests WHERE id=3";
+$request = $data->request;
 
-  // use exec() because no results are returned
-  $conn->exec($sql);
-  echo "Record deleted successfully";
-} catch(PDOException $e) {
-  echo $sql . "<br>" . $e->getMessage();
+// Fetch All records
+if($request == 1){
+  $userData = mysqli_query($con,"select * from users order by id desc");
+
+  $response = array();
+  while($row = mysqli_fetch_assoc($userData)){
+    $response[] = $row;
+  }
+
+  echo json_encode($response);
+  exit;
 }
 
-$conn = null;
-?>
+// Add record
+if($request == 2){
+  $username = $data->username;
+  $name = $data->name;
+  $email = $data->email;
+
+  $userData = mysqli_query($con,"SELECT * FROM users WHERE username='".$username."'");
+  if(mysqli_num_rows($userData) == 0){
+    mysqli_query($con,"INSERT INTO users(username,name,email) VALUES('".$username."','".$name."','".$email."')");
+    echo "Insert successfully";
+  }else{
+    echo "Username already exists.";
+  }
+
+  exit;
+}
+
+// Update record
+if($request == 3){
+  $id = $data->id;
+  $name = $data->name;
+  $email = $data->email;
+
+  mysqli_query($con,"UPDATE users SET name='".$name."',email='".$email."' WHERE id=".$id);
+
+  echo "Update successfully";
+  exit;
+}
+
+// Delete record
+if($request == 4){
+  $id = $data->id;
+
+  mysqli_query($con,"DELETE FROM users WHERE id=".$id);
+
+  echo "Delete successfully";
+  exit;
+}
