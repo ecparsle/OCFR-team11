@@ -8,6 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="data:;base64,=">
     <title>Table</title>
     <nav class="navbar navbar-expand-md">
       <a class="navbar-brand" href="index.html">Oconee County Fire Rescue</a>
@@ -36,72 +37,46 @@
     </nav>
   </head>
   <body>
-
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-
-    <form>
-  <div class="form-row">
-    <div class="col-md-6 mb-3">
-      <label for="validationDefault01">First Name:</label>
-      <input type="text" class="form-control" id="validationDefault01" required>
+    <h1>Create Members</h1>
+<div id="memberPage">
+    <form target= "_blank" v-on:submit="createMembers()">
+  <div class="members">
+      <label for="memberFirstName">First Name:</label>
+      <input type="text" v-model="newMember.firstName" class="form-control" id="memberFirstName" required>
+      <label for="memberLastName">Last Name:</label>
+      <input type="text" v-model="newMember.lastName" class="form-control" id="memberLastName" required>
+      <label for="memberAddress">Address:</label>
+      <input type="text" v-model="newMember.address" class="form-control" id="memberAddress" required>
+      <label for="memberEmail">Email:</label>
+      <input type="text" v-model="newMember.email" class="form-control" id="memberEmail" required>
+      <label for="memberPassword">Password:</label>
+      <input type="text" v-model="newMember.password" class="form-control" id="memberPassword" required>
+      <label for="memberPhoneNumber">Phone Number:</label>
+      <input type="text" v-model="newMember.phoneNumber" class="form-control" id="memberPhoneNumber" required>
+      <label for="memberDOB">DOB:</label>
+      <input type="text" v-model="newMember.dob" class="form-control" id="memberDOB" required>
+      <label for="memberGender">Gender:</label>
+      <input type="text" v-model="newMember.gender" class="form-control" id="memberGender" required>
+      <label for="memberStartDate">Start Date:</label>
+      <input type="text" v-model="newMember.startDate" class="form-control" id="memberStartDate" required>
+      <label for="memberDepartmentPosition">Department Position:</label>
+      <input type="text" v-model="newMember.departmentPosition" class="form-control" id="memberDepartmentPosition" required>
+      <label for="memberRadioNumber">Radio Number:</label>
+      <input type="text" v-model="newMember.radioNumber" class="form-control" id="memberRadioNumber" required>
+      <label for="memberStationNumber">Station Number:</label>
+      <input type="text" v-model="newMember.stationNumber" class="form-control" id="memberStationNumber" required>
+      <label for="memberIsActive">Active Status:</label>
+      <input type="text" v-model="newMember.isActive" class="form-control" id="memberIsActive" required>
+      <input onclick="window.location.href = 'view_members.html';" class="btn btn-primary" type="submit" value="Create Members" required>
     </div>
-    <div class="col-md-6 mb-3">
-      <label for="validationDefault02">Last Name:</label>
-      <input type="text" class="form-control" id="validationDefault02" required>
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="col-md-6 mb-3">
-      <label for="validationDefault03">Address:</label>
-      <input type="text" class="form-control" id="validationDefault03" required>
-    </div>
-    <div class="col-md-3 mb-3">
-      <label for="validationDefault05">Email:</label>
-      <input type="text" class="form-control" id="validationDefault05" required>
-    </div>
-    <div class="col-md-3 mb-3">
-      <label for="validationDefault05">Password:</label>
-      <input type="text" class="form-control" id="validationDefault05" required>
-    </div>
-    <div class="col-md-3 mb-3">
-      <label for="validationDefault05">Phone number:</label>
-      <input type="text" class="form-control" id="validationDefault05" required>
-    </div>
-    <div class="col-md-3 mb-3">
-      <label for="validationDefault05">DOB:</label>
-      <input type="text" class="form-control" id="validationDefault05" required>
-    </div>
-    <div class="col-md-3 mb-3">
-      <label for="validationDefault05">Gender:</label>
-      <input type="text" class="form-control" id="validationDefault05" required>
-    </div>
-    <div class="col-md-3 mb-3">
-      <label for="validationDefault05">Start Date:</label>
-      <input type="text" class="form-control" id="validationDefault05" required>
-    </div>
-    <div class="col-md-3 mb-3">
-      <label for="validationDefault05">Department Position:</label>
-      <input type="text" class="form-control" id="validationDefault05" required>
-    </div>
-    <div class="col-md-3 mb-3">
-      <label for="validationDefault05">Radio Number:</label>
-      <input type="text" class="form-control" id="validationDefault05" required>
-    </div>
-    <div class="col-md-3 mb-3">
-      <label for="validationDefault05">Station Number:</label>
-      <input type="text" class="form-control" id="validationDefault05" required>
-    </div>
-    <div class="col-md-3 mb-3">
-      <label for="validationDefault05">Active Status:</label>
-      <input type="text" class="form-control" id="validationDefault05" required>
-    </div>
-
-  </div>
-  <h4>Add New Member:</h4>
-    <button class="btn btn-primary" type="submit">Submit</button>
+  <br/>
 </form>
+</div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="js/members.js"></script>
   </body>
 </html>
