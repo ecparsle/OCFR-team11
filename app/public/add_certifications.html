@@ -8,6 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="data:;base64,=">
     <title>Table</title>
     <nav class="navbar navbar-expand-md">
       <a class="navbar-brand" href="index.html">Oconee County Fire Rescue</a>
@@ -38,24 +39,19 @@
   <body>
     <h1>Create Certifications</h1>
 <div id="triagePage">
-    <form target="_blank" v-on:submit="createCerts()">
+    <form target= "_blank" v-on:submit="createCerts()">
   <div class="certs">
-      <label for="certName">Certification Name:</label>
-      <input type="text" v-model="newCert.name" class="form-control" id="certAgency" required>
       <label for="certAgency">Agency:</label>
       <input type="text" v-model="newCert.agency" class="form-control" id="certAgency" required>
-      <label for="certExpPeriod">Expiration Period:</label>
-      <input type="text" v-model="newCert.expirationPeriod" class="form-control" id="certExpPeriod" required>
+      <label for="certName">Name:</label>
+      <input type="text" v-model="newCert.name" class="form-control" id="certName" required>
       <label for="certCity">City:</label>
       <input type="text" v-model="newCert.city" class="form-control" id="certCity" required>
+      <label for="certExpPeriod">Expiration Period:</label>
+      <input type="text" v-model="newCert.expirationPeriod" class="form-control" id="certExpPeriod" required>
       <input onclick="window.location.href = 'view_certifications.html';" class="btn btn-primary" type="submit" value="Create Certs" required>
     </div>
   <br/>
-    <!-- <button class="btn btn-primary" type="submit" value="Create Certs">Submit</button> -->
-    <!-- <div class="btn-group" value="Create Certs">
-      <a href="view_certifications.html" class="btn btn-primary active">
-      <input type="submit"/>Submit</a>
-    </div> -->
 </form>
 </div>
 
