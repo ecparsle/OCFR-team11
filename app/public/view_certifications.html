@@ -48,7 +48,6 @@
 
 <div class="container-fluid" id="triagePage">
   <!--div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">-->
-    <div class="certs" v-for="certs in certs">
               <!-- <button v-on:click="yell()">Click Me!</button> -->
         <table id="taskTable" class="table table-bordered table-striped table-hover table-condensed">
 
@@ -62,17 +61,16 @@
             </thead>
 
             <tbody>
-              <tr>
-                  <td><span class="name">{{certs.name}}</span></td>
-                  <td><span class="agency">{{certs.agency}}</span></td>
-                  <td><span class="expirationPeriod">{{certs.expirationPeriod}}</span></td>
-                  <td><span class="city">{{certs.city}}</span></td>
+              <tr class="certs" v-for="cert in certs">
+                  <td><span class="name">{{cert.name}}</span></td>
+                  <td><span class="agency">{{cert.agency}}</span></td>
+                  <td><span class="expirationPeriod">{{cert.expirationPeriod}}</span></td>
+                  <td><span class="city">{{cert.city}}</span></td>
               </tr>
             </tbody>
         </table>
 
     </div><br/>
-  </div>
       <!-- END content -->
 
       <!-- Footer? Insert here -->
