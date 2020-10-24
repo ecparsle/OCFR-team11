@@ -14,6 +14,7 @@ var app = new Vue({
       expirationPeriod:''
     }
   },
+  
   methods: {
     fetchCerts(){
       fetch('api/certification/index.php')
@@ -24,6 +25,23 @@ var app = new Vue({
       },
      createCerts(){
        fetch('api/certification/post.php', {
+         method:'POST',
+         body: JSON.stringify(this.newCert),
+         headers: {
+           "Content-Type": "application/json; charset=utf-8"
+         }
+       })
+       .then( response => response.json() )
+       .then( json => {
+         console.log("Returned from post:", json);
+         this.certs.push(json[0]);
+         this.newCert = this.newCertData();
+      });
+        console.log("Great Scott!!!");
+        console.log(this.newCert);
+     },
+     deleteCerts(){
+       fetch('api/certification/delete.php', {
          method:'POST',
          body: JSON.stringify(this.newCert),
          headers: {
