@@ -1,19 +1,19 @@
 USE ocfr_v1;
 CREATE TABLE People (
  userID int AUTO_INCREMENT,
- firstName varchar(255),
- lastName varchar(255),
- address varchar(255),
- email varchar(255),
- password varchar (255),
- phoneNumber INT,
- dob DATE,
- gender varchar(255),
- startDate DATE,
- departmentPosition varchar(255),
- radioNumber int,
- stationNumber int,
- isActive bool,
+ firstName varchar(255) NOT NULL,
+ lastName varchar(255) NOT NULL,
+ address varchar(255) NOT NULL,
+ email varchar(255) NOT NULL,
+ password varchar (255) NOT NULL,
+ phoneNumber INT NOT NULL,
+ dob DATE NOT NULL,
+ gender varchar(255) NOT NULL,
+ startDate DATE NOT NULL,
+ departmentPosition varchar(255) NOT NULL,
+ radioNumber int NOT NULL,
+ stationNumber int NOT NULL,
+ isActive bool NOT NULL,
  PRIMARY KEY (userID)
  );
 
@@ -23,10 +23,10 @@ CREATE TABLE People (
 
 CREATE TABLE Certification (
  certificationID int AUTO_INCREMENT,
- agency varchar(255),
- name varchar(255),
- city varchar(255),
- expirationPeriod varchar(255),
+ agency varchar(255) NOT NULL,
+ name varchar(255) NOT NULL,
+ city varchar(255) NOT NULL,
+ expirationPeriod varchar(255) NOT NULL,
  PRIMARY KEY (certificationID)
  );
 
@@ -35,15 +35,15 @@ CREATE TABLE Certification (
 
 CREATE TABLE certifiedPeople (
  certifiedPeopleID int AUTO_INCREMENT,
- userID int,
- certificationID int,
- certificationName varchar(255),
- firstName varchar (255),
- lastName varchar (255),
+ userID int NOT NULL,
+ certificationID int NOT NULL,
+ certificationName varchar(255) NOT NULL,
+ firstName varchar (255) NOT NULL,
+ lastName varchar (255) NOT NULL,
  PRIMARY KEY (certifiedPeopleID),
  FOREIGN KEY (userID) REFERENCES People(userID),
  FOREIGN KEY (certificationID) REFERENCES Certification(certificationID)
  );
 
- INSERT INTO certifiedPeople ( certificationName, firstName, lastName)
- VALUES ('CPR', 'Joel', 'Embiid');
+INSERT INTO certifiedPeople ( userID, certificationID, certificationName, firstName, lastName)
+VALUES (1, 1, 'CPR', 'Joel', 'Embiid');
