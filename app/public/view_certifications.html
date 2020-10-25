@@ -54,6 +54,8 @@
 
             <thead>
               <tr>
+                  <th class="headerSortDown">Edit/Delete</th>
+                  <th class="headerSortDown">#</th>
                   <th class="headerSortDown">Certification Name</th>
                   <th class="headerSortUp">Agency</th>
                   <th class="headerSortDown">Expiration period</th>
@@ -63,6 +65,8 @@
 
             <tbody>
               <tr class="certs" v-for="cert in certs">
+                  <td><button v-on:click="deleteCerts(cert.certificationID)">Delete</button></td>
+                  <td><span class="id">{{cert.certificationID}}</span></td>
                   <td><span class="name">{{cert.name}}</span></td>
                   <td><span class="agency">{{cert.agency}}</span></td>
                   <td><span class="expirationPeriod">{{cert.expirationPeriod}}</span></td>
