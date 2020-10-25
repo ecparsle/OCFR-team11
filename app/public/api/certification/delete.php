@@ -1,58 +1,32 @@
 <?php
-include "config.php";
 
-$data = json_decode(file_get_contents("php://input"));
+require 'common.php';
 
-$request = $data->request;
+// Only need this line if we're creating GUIDs (see comments below)
+// Step 0: Validate the incoming data
+// This code doesn't do that, but should ...
+// For example, if the date is empty or bad, this insert fails.
 
-// Fetch All records
-if($request == 1){
-  $userData = mysqli_query($con,"select * from users order by id desc");
+// As part of this step, create a new GUID to use as primary key (suitable for cross-system use)
+// If we weren't using a GUID, allowing auto_increment to work would be best (don't pass `id` to `INSERT`)
+// Step 1: Get a datase connection from our helper class
+$db = DbConnection::getConnection();
 
-  $response = array();
-  while($row = mysqli_fetch_assoc($userData)){
-    $response[] = $row;
-  }
+// Step 2: Create & run the query
+// Note the use of parameterized statements to avoid injection
+$stmt = $db->prepare(
+  'DELETE FROM Certification WHERE certificationID = ?'//use id
+);
 
-  echo json_encode($response);
-  exit;
-}
+$stmt->execute([
+  $_POST['certificationID']
+]);
 
-// Add record
-if($request == 2){
-  $username = $data->username;
-  $name = $data->name;
-  $email = $data->email;
+// If needed, get auto-generated PK from DB
+$pk = $db->lastInsertId();  // https://www.php.net/manual/en/pdo.lastinsertid.php
 
-  $userData = mysqli_query($con,"SELECT * FROM users WHERE username='".$username."'");
-  if(mysqli_num_rows($userData) == 0){
-    mysqli_query($con,"INSERT INTO users(username,name,email) VALUES('".$username."','".$name."','".$email."')");
-    echo "Insert successfully";
-  }else{
-    echo "Username already exists.";
-  }
-
-  exit;
-}
-
-// Update record
-if($request == 3){
-  $id = $data->id;
-  $name = $data->name;
-  $email = $data->email;
-
-  mysqli_query($con,"UPDATE users SET name='".$name."',email='".$email."' WHERE id=".$id);
-
-  echo "Update successfully";
-  exit;
-}
-
-// Delete record
-if($request == 4){
-  $id = $data->id;
-
-  mysqli_query($con,"DELETE FROM users WHERE id=".$id);
-
-  echo "Delete successfully";
-  exit;
-}
+// Step 4: Output
+// Here, instead of giving output, I'm redirecting to the SELECT API,
+// just in case the data changed by entering it
+header('HTTP/1.1 303 See Other');
+header('Location: ../certification/');
