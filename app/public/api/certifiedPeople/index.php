@@ -9,7 +9,7 @@ $db = DbConnection::getConnection();
 $sql = 'SELECT * FROM certifiedPeople';
 $vars = [];
 
-if (isset($_GET['certificationID'])) {
+if (isset($_GET['certifiedPeopleID'])) {
   // This is an example of a parameterized query
   $sql = 'SELECT * FROM certifiedPeople WHERE certifiedPeopleID = ?';
   $vars = [ $_GET['certifiedPeopleID'] ];
@@ -18,10 +18,10 @@ if (isset($_GET['certificationID'])) {
 $stmt = $db->prepare($sql);
 $stmt->execute($vars);
 
-$certifications = $stmt->fetchAll();
+$certifiedPeople = $stmt->fetchAll();
 
 // Step 3: Convert to JSON
-$json = json_encode($certifications, JSON_PRETTY_PRINT);
+$json = json_encode($certifiedPeople, JSON_PRETTY_PRINT);
 
 // Step 4: Output
 header('Content-Type: application/json');
