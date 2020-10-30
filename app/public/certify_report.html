@@ -47,34 +47,37 @@
 <h2>Expiration of Certifications</h2>
             <p> <p/>
               <!-- <button v-on:click="yell()">Click Me!</button> -->
-              <table id="taskTable" class="table table-bordered table-striped table-hover table-condensed">
+              <div class="container-fluid" id="certifiedPeoplePage">
+                <table id="taskTable" class="table table-bordered table-striped table-hover table-condensed">
 
-                      <thead>
-                          <tr>
-                      <th class="headerSortDown">Name</th>
-                      <th class="headerSortUp">Certification</th>
-                      <th class="headerSortDown">Certification ID</th>
-                      <th class="headerSortUp">Expiration Date</th>
-                    </tr>
-              </thead>
-                     <tbody>
-                         <tr>  <td></td><td></td><td></td><td></td></tr>
-                                <td></td><td></td><td></td><td></td></tr>
-                                <td></td><td></td><td></td><td></td></tr>
-                                <td></td><td></td><td></td><td></td></tr>
-                                <td></td><td></td><td></td><td></td></tr>
-                                <td></td><td></td><td></td><td></td></tr>
-                                <td></td><td></td><td></td><td></td></tr>
-                                <td></td><td></td><td></td><td></td></tr>
-                                <td></td><td></td><td></td><td></td></tr>
-                                <td></td><td></td><td></td><td></td></tr>
-                                <td></td><td></td><td></td><td></td></tr>
-                                <td></td><td></td><td></td><td></td></tr>
-                         </tbody>
-                     <tfoot>
-                     <tr>
-                         </tr>
-                     </tfoot>
-                  </table>
-  </body>
-</html>
+                        <thead>
+                            <tr>
+                        <th class="headerSortDown">First Name</th>
+                        <th class="headerSortDown">Last Name</th>
+                        <th class="headerSortUp">Certification</th>
+                        <th class="headerSortDown">Certification ID</th>
+                        <th class="headerSortUp">Expiration Date</th>
+                      </tr>
+                </thead>
+                       <tbody>
+                           <tr class="certpeople" v-for="certpeople in certpeople">
+                             <td><span class="firstName">{{certpeople.firstName}}</span></td>
+                             <td><span class="lastName">{{certpeople.lastName}}</span></td>
+                             <td><span class="name">{{certpeople.certificationName}}</span></td>
+                             <td><span class="id">{{certpeople.certificationID}}</span></td>
+                             <td><span class="expirationPeriod">{{certpeople.expirationPeriod}}</span></td>
+                           </tr>
+                       </tbody>
+                       <tfoot>
+                       <tr>
+                           </tr>
+                       </tfoot>
+                    </table>
+                  </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="js/certifiedpeople.js"></script>
+    </body>
+  </html>
