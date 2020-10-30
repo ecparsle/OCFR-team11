@@ -48,35 +48,41 @@
 <h1>Reports</h1>
 <h2>Fireman by Station</h2>
             <p> <p/>
+        <div class="container-fluid" id="memberPage">
+
               <!-- <button v-on:click="yell()">Click Me!</button> -->
               <table id="taskTable" class="table table-bordered table-striped table-hover table-condensed">
 
-                      <thead>
-                          <tr>
+                <thead>
+                  <tr>
                       <th class="headerSortDown">Fire Station</th>
                       <th class="headerSortUp">Radio Number</th>
-                      <th class="headerSortDown">Name</th>
+                      <th class="headerSortDown">First Name</th>
+                      <th class="headerSortDown">Last Name</th>
                       <th class="headerSortUp">Email Address</th>
-                    </tr>
+                  </tr>
               </thead>
-                     <tbody>
-                         <tr>  <td></td><td></td><td></td><td></td></tr>
-                                <td></td><td></td><td></td><td></td></tr>
-                                <td></td><td></td><td></td><td></td></tr>
-                                <td></td><td></td><td></td><td></td></tr>
-                                <td></td><td></td><td></td><td></td></tr>
-                                <td></td><td></td><td></td><td></td></tr>
-                                <td></td><td></td><td></td><td></td></tr>
-                                <td></td><td></td><td></td><td></td></tr>
-                                <td></td><td></td><td></td><td></td></tr>
-                                <td></td><td></td><td></td><td></td></tr>
-                                <td></td><td></td><td></td><td></td></tr>
-                                <td></td><td></td><td></td><td></td></tr>
-                         </tbody>
+
+              <tbody>
+                <tr class="members" v-for="member in members">
+                    <td><span class="stationNumber">{{member.stationNumber}}</span></td>
+                    <td><span class="radioNumber">{{member.radioNumber}}</span></td>
+                    <td><span class="firstName">{{member.firstName}}</span></td>
+                    <td><span class="lastName">{{member.lastName}}</span></td>
+                    <td><span class="Email">{{member.email}}</span></td>
+                </tr>
+              </tbody>
                      <tfoot>
                      <tr>
                          </tr>
                      </tfoot>
                   </table>
+              </div>
+              <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+              <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+              <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+              <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+              <script src="js/members.js"></script>
   </body>
 </html>
