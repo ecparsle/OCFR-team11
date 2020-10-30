@@ -1,3 +1,4 @@
+
 <?php
 
 require 'common.php';
@@ -26,3 +27,4 @@ $json = json_encode($certifiedPeople, JSON_PRETTY_PRINT);
 // Step 4: Output
 header('Content-Type: application/json');
 echo $json;
+
