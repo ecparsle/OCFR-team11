@@ -57,7 +57,7 @@ var app = new Vue({
        .then( json => {
          console.log("Returned from post:", json);
          // TODO: test a result was returned!
-         this.cert=json;
+         this.certs=json;
        });
        console.log("Deleting (POSTing)...!");
      },
