@@ -56,6 +56,8 @@
 
                       <thead>
                         <tr>
+                            <th class="headerSortDown">Delete</th>
+                            <th class="headerSortDown">#</th>
                             <th class="headerSortDown">First Name</th>
                             <th class="headerSortDown">Last Name</th>
                             <th class="headerSortUp">Address</th>
@@ -74,6 +76,8 @@
 
                       <tbody>
                         <tr class="members" v-for="member in members">
+                            <td><input type='button' value='Delete' v-on:click='deleteMembers(member.userID)' onclick='window.location.reload()'></td>
+                            <td><span class="firstName">{{member.userID}}</span></td>
                             <td><span class="firstName">{{member.firstName}}</span></td>
                             <td><span class="lastName">{{member.lastName}}</span></td>
                             <td><span class="address">{{member.address}}</span></td>
