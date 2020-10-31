@@ -61,11 +61,6 @@ var app = new Vue({
        });
        console.log("Deleting (POSTing)...!");
      },
-     // newdeleteCert(){
-     //   return {
-     //     certificationID:''
-     //   }
-     // },
      newCertData() {
        return {
          certificationID:'',
