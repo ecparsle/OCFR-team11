@@ -48,14 +48,12 @@
 <br></br>
 
 <div class="container-fluid" id="triagePage">
-  <!--div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">-->
-              <!-- <button v-on:click="yell()">Click Me!</button> -->
         <table id="taskTable" class="table table-bordered table-striped table-hover table-condensed">
 
             <thead>
               <tr>
-                  <th class="headerSortDown">Edit/Delete</th>
-                  <th class="headerSortDown">#</th>
+                  <th class="headerSortDown">Delete</th>
+                  <th class="headerSortDown">ID #</th>
                   <th class="headerSortDown">Certification Name</th>
                   <th class="headerSortUp">Agency</th>
                   <th class="headerSortDown">Expiration period</th>
@@ -65,7 +63,7 @@
 
             <tbody>
               <tr class="certs" v-for="cert in certs">
-                  <td><button v-on:click="deleteCerts(cert.certificationID)">Delete</button></td>
+                  <td><input type='button' value='Delete' v-on:click='deleteCerts(cert.certificationID)' onclick='window.location.reload()'></td>
                   <td><span class="id">{{cert.certificationID}}</span></td>
                   <td><span class="name">{{cert.name}}</span></td>
                   <td><span class="agency">{{cert.agency}}</span></td>
@@ -74,8 +72,9 @@
               </tr>
             </tbody>
         </table>
-
     </div><br/>
+
+
       <!-- END content -->
 
       <!-- Footer? Insert here -->

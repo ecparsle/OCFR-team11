@@ -42,23 +42,24 @@ var app = new Vue({
         console.log("Great Scott!!!");
         console.log(this.newCert);
      },
-     deleteCerts(){ var deleteCert;
-     console.log(deleteCert);
+     deleteCerts(deleteCert){
+       console.log(deleteCert);
        fetch('api/certification/delete.php', {
          method:'POST',
-         body: JSON.stringify(deleteCert),
+         body: JSON.stringify({
+           "certificationID": deleteCert
+        }),
          headers: {
            "Content-Type": "application/json; charset=utf-8"
          }
        })
-       .then( response => response.json() )
+       .then( response => response.text() )
        .then( json => {
          console.log("Returned from post:", json);
-         this.certs = json;
-         this.newCert = this.newCertData();
-      });
-        console.log("Great Scott!!!");
-        console.log(deleteCert);
+         // TODO: test a result was returned!
+         this.cert=json;
+       });
+       console.log("Deleting (POSTing)...!");
      },
      newCertData() {
        return {
