@@ -54,8 +54,8 @@
 
             <thead>
               <tr>
-                  <th class="headerSortDown">Edit/Delete</th>
-                  <th class="headerSortDown">#</th>
+                  <th class="headerSortDown">Delete</th>
+                  <th class="headerSortDown">ID #</th>
                   <th class="headerSortDown">Certification Name</th>
                   <th class="headerSortUp">Agency</th>
                   <th class="headerSortDown">Expiration period</th>
@@ -65,7 +65,13 @@
 
             <tbody>
               <tr class="certs" v-for="cert in certs">
-                  <td><button v-on:click="deleteCerts(cert.certificationID)">Delete</button></td>
+                  <!-- <form v-on:submit.prevent ="deleteCerts()">
+                    <div class="col">
+                      <td><button class="btn btn-primary" id="submit" type="submit">Delete</button></td>
+                    </div>
+                  </form> -->
+                  <td><input type='button' value='Delete' v-on:click='deleteCerts(cert.certificationID)' onclick='window.location.reload()'></td>
+                  <!-- <td><button v-on:onclick="deleteCerts()">Delete</button></td> -->
                   <td><span class="id">{{cert.certificationID}}</span></td>
                   <td><span class="name">{{cert.name}}</span></td>
                   <td><span class="agency">{{cert.agency}}</span></td>
@@ -74,8 +80,17 @@
               </tr>
             </tbody>
         </table>
-
+        <!-- <form v-on:submit.prevent ="deleteCerts()">
+          <div class="col">
+            <label for="certificationID">Please enter the ID number of the Certification to edit/delete</label>
+            <input type="text" v-model="certs.certificationID" class="form-control" id="certificationID">
+            <div id="success"></div>
+            <button class="btn btn-primary" id="submit" type="submit">Delete</button>
+          </div>
+        </form> -->
     </div><br/>
+
+
       <!-- END content -->
 
       <!-- Footer? Insert here -->
