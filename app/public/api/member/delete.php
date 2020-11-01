@@ -15,4 +15,4 @@ $stmt->execute([
 //$pk = $db->lastInsertId();  // https://www.php.net/manual/en/pdo.lastinsertid.php
 
 header('HTTP/1.1 303 See Other');
-header('Location: ../certification/');
+header('Location: ../member/');
