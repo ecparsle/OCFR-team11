@@ -52,6 +52,7 @@
 
             <thead>
               <tr>
+                  <th class="headerSortDown">Edit</th>
                   <th class="headerSortDown">Delete</th>
                   <th class="headerSortDown">#</th>
                   <th class="headerSortDown">Certification Name</th>
@@ -63,6 +64,8 @@
 
             <tbody>
               <tr class="certs" v-for="cert in certs">
+<!-- <input onclick="window.location.href = 'view_certifications.html';" class="btn btn-primary" type="submit" value="Create Certs" required> -->
+                  <td><input type='button' value='Edit'  v-on:click.prevent='newCert = cert' onclick="window.location.href = 'edit_certifications.html';"></input></td>
                   <td><input type='button' value='Delete' v-on:click='deleteCerts(cert.certificationID)' onclick='window.location.reload()'></td>
                   <td><span class="id">{{cert.certificationID}}</span></td>
                   <td><span class="name">{{cert.name}}</span></td>
