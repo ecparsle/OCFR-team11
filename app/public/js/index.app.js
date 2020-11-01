@@ -61,15 +61,32 @@ var app = new Vue({
        });
        console.log("Deleting (POSTing)...!");
      },
-     newCertData() {
-       return {
-         certificationID:'',
-         agency:'',
-         name:'',
-         city:'',
-         expirationPeriod:''
+     editCerts() {
+       fetch('api/certifications/edit.php', {
+         method:'POST',
+         body: JSON.stringify(this.newCert),
+         headers: {
+        "Content-Type": "application/json; charset=utf-8"
+         }
+        })
+        .then( response => response.json() )
+        .then( json => {
+          console.log("Returned from post:", json);
+          // TODO: test a result was returned!
+          this.newCert=json;
+        });
+        console.log("Updating (POSTing)...!");
+        console.log(this.newCert);
+      },
+      newCertData() {
+        return {
+           certificationID:'',
+           agency:'',
+           name:'',
+           city:'',
+           expirationPeriod:''
+         }
        }
-     }
 },
  created() {
   this.fetchCerts();
