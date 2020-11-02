@@ -62,7 +62,7 @@ var app = new Vue({
        console.log("Deleting (POSTing)...!");
      },
      editCerts() {
-       fetch('api/certifications/edit.php', {
+       fetch('api/certification/edit.php', {
          method:'POST',
          body: JSON.stringify(this.newCert),
          headers: {
@@ -73,10 +73,12 @@ var app = new Vue({
         .then( json => {
           console.log("Returned from post:", json);
           // TODO: test a result was returned!
-          this.newCert=json;
+          this.certs=json;
+          this.newCert = this.newCertData();
+          // certAgency.Placeholder = DataRow[0]("agency").ToString();
         });
         console.log("Updating (POSTing)...!");
-        console.log(this.newCert);
+        console.log(this.certs);
       },
       newCertData() {
         return {
