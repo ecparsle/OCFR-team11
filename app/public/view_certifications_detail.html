@@ -40,39 +40,55 @@
     </div>
   </nav>
 
-    <h1>View Members</h1>
+    <section class="page-section" id="certifiedPeoplePage">
+            <div class="container">
+                <div class="text-center">
+                    <h1>View Certifed People</h1>
+                </div>
+            </div>
+            <center>
+              <div class="filter">
+                <select v-model="filter.fn">
+                  <option value="">Certificates</option>
+                  <option v-for='cert in certpeople'>{{cert.certificationName}}</option>
+                </select>
+              </div>
+            </center>
+            <center>
+              <div class="filter">
+                <select v-model="filter.fn">
+                  <option value="">Last Name</option>
+                  <option v-for='cert in certpeople'>{{cert.lastName}}</option>
+                </select>
+              </div>
+            </center>
+            <br>
+            <center>
+    <div class="container-fluid" id="detailedPage">
+            <table id="taskTable" class="table table-bordered table-striped table-hover table-condensed">
 
-          <!-- <button v-on:click="yell()">Click Me!</button> -->
-          <table id="taskTable" class="table table-bordered table-striped table-hover table-condensed">
+                <thead>
+                  <tr>
+                      <th class="headerSortDown">First Name</th>
+                      <th class="headerSortDown">Last Name</th>
+                      <th class="headerSortDown">Certification Name</th>
+                      <th class="headerSortDown">Certification ID</th>
+                      <th class="headerSortDown">Date Expired</th>
+                  </tr>
+                </thead>
 
-                  <thead>
-                      <tr>
-                  <th class="headerSortDown">Certification Name </th>
-                  <th class="headerSortUp">Member Name</th>
-                  <th class="headerSortDown">Expiration Status</th>
-                </tr>
-          </thead>
-                 <tbody>
-                     <tr>  <td></td><td></td><td></td><td></td><td></td><td></tr>
-                     <tr>  <td></td><td></td><td></td><td></td><td></td><td></td>
-                     <tr>  <td></td><td></td><td></td><td></td><td></td><td></tr>
-                     <tr>  <td></td><td></td><td></td><td></td><td></td><td></td>
-                     <tr>  <td></td><td></td><td></td><td></td><td></td><td></tr>
-                     <tr>  <td></td><td></td><td></td><td></td><td></td><td></td>
-                     <tr>  <td></td><td></td><td></td><td></td><td></td><td></tr>
-                     <tr>  <td></td><td></td><td></td><td></td><td></td><td></td>
-                     <tr>  <td></td><td></td><td></td><td></td><td></td><td></tr>
-                     <tr>  <td></td><td></td><td></td><td></td><td></td><td></td>
-                     <tr>  <td></td><td></td><td></td><td></td><td></td><td></tr>
-                     <tr>  <td></td><td></td><td></td><td></td><td></td><td></td>
-               </tr>
-                     </tbody>
-                 <tfoot>
-                 <tr>
-                     </tr>
-                 </tfoot>
-              </table>
-
+                <tbody>
+                  <tr v-for="cert in certpeople" v-if="filter.fn=='' || filter.fn == cert.firstName || filter.fn == cert.lastName">
+    <!-- <input onclick="window.location.href = 'view_certifications.html';" class="btn btn-primary" type="submit" value="Create Certs" required> -->
+                      <td><span class="id">{{cert.firstName}}</span></td>
+                      <td><span class="name">{{cert.lastName}}</span></td>
+                      <td><span class="agency">{{cert.certificationName}}</span></td>
+                      <td><span class="expirationPeriod">{{cert.certificationID}}</span></td>
+                      <td><span class="city">{{cert.expirationPeriod}}</span></td>
+                  </tr>
+                </tbody>
+            </table>
+        </div><br/>
 
     <!-- END content -->
 
@@ -85,6 +101,13 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="js/index.app.js"></script>
+    <script src="js/detailed.js"></script>
+    <script src="js/certifiedpeople.js"></script>
+    <script src ="js/tablesort.min.js"> </script>
+    <script src='js/tablesort.number.js'></script>
+    <script>
+// Tablesort plugin from https://github.com/tristen/tablesort//
+    new Tablesort(document.getElementById('taskTable'));
+</script>
   </body>
 </html>
