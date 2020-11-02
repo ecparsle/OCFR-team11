@@ -37,23 +37,25 @@
     </nav>
   </head>
   <body>
+<!-- <section v-if="certs"> -->
     <h1>Edit Certifications</h1>
 <div id="triagePage">
     <form target= "_blank" v-on:submit="editCerts()">
-  <div class="certs">
-      <label for="certAgency">Agency:</label>
-      <input type="text" v-model="certs.agency" class="form-control" id="certAgency" required>
-      <label for="certName">Name:</label>
-      <input type="text" v-model="newCert.name" class="form-control" id="certName" required>
-      <label for="certCity">City:</label>
-      <input type="text" v-model="newCert.city" class="form-control" id="certCity" required>
-      <label for="certExpPeriod">Expiration Period:</label>
-      <input type="text" v-model="newCert.expirationPeriod" class="form-control" id="certExpPeriod" required>
-      <input onclick="window.location.href = 'view_certifications.html';" class="btn btn-primary" type="edit" value="Edit Certs" required>
-    </div>
+      <div class="certs">
+          <label for="certAgency">Agency:</label>
+          <input type="text" v-model="newCert.agency" class="form-control" id="certAgency" required>
+          <label for="certName">Name:</label>
+          <input type="text" v-model="newCert.name" class="form-control" id="certName" required>
+          <label for="certCity">City:</label>
+          <input type="text" v-model="newCert.city" class="form-control" id="certCity" required>
+          <label for="certExpPeriod">Expiration Period:</label>
+          <input type="text" v-model="newCert.expirationPeriod" class="form-control" id="certExpPeriod" required>
+          <input onclick="window.location.href = 'view_certifications.html';" class="btn btn-primary" type="submit" value="Edit Certs" required>
+      </div>
   <br/>
 </form>
 </div>
+<!-- </section> -->
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
