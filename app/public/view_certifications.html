@@ -45,6 +45,11 @@
 <i class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></i> Add Certifications
 </a>
 </div>
+<div class="btn-group">
+<a href="view_certifications_detail.html" class="btn btn-warning active">
+<i class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></i> Detailed Certifications
+</a>
+</div>
 <br></br>
 
 <div class="container-fluid" id="triagePage">
@@ -65,7 +70,7 @@
             <tbody>
               <tr class="certs" v-for="cert in certs">
 <!-- <input onclick="window.location.href = 'view_certifications.html';" class="btn btn-primary" type="submit" value="Create Certs" required> -->
-                  <td><input type='button' value='Edit'  v-on:click.prevent='newCert = cert' onclick="window.location.href = 'edit_certifications.html';"></input></td>
+                  <td><input type='button' value='Edit'  v-on:click='certs = cert' onclick="window.location.href = 'edit_certifications.html';"></td>
                   <td><input type='button' value='Delete' v-on:click='deleteCerts(cert.certificationID)' onclick='window.location.reload()'></td>
                   <td><span class="id">{{cert.certificationID}}</span></td>
                   <td><span class="name">{{cert.name}}</span></td>
