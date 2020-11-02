@@ -10,6 +10,9 @@ var app = new Vue({
       lastName:'',
       expirationPeriod:''
     }],
+    filter: {
+      fn: ""
+    }
   },
 
   methods: {
