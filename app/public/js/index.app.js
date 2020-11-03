@@ -14,6 +14,13 @@ var app = new Vue({
       name:'',
       city:'',
       expirationPeriod:''
+    },
+    activecert:{
+      certificationID:"",
+      agency:"",
+      name:"",
+      city:"",
+      expirationPeriod:""
     }
   },
 
@@ -61,7 +68,7 @@ var app = new Vue({
        });
        console.log("Deleting (POSTing)...!");
      },
-     editCerts() {
+/*     editCerts() {
        fetch('api/certification/edit.php', {
          method:'POST',
          body: JSON.stringify(this.newCert),
@@ -79,6 +86,19 @@ var app = new Vue({
         });
         console.log("Updating (POSTing)...!");
         console.log(this.certs);
+      },*/
+      updateCert( evt ){
+        fetch('api/certification/edit.php', {
+          method: 'POST',
+          body: JSON.stringify(this.activecert),
+          headers: {
+            "Content-Type": "application/json; charset=utf-8"
+          }
+        })
+        .then( response => response.json() )
+        .then( json => {
+          console.log("Returned from post:", json);
+        });
       },
       newCertData() {
         return {
