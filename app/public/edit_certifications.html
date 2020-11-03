@@ -40,16 +40,16 @@
 <!-- <section v-if="certs"> -->
     <h1>Edit Certifications</h1>
 <div id="triagePage">
-    <form target= "_blank" v-on:submit="editCerts()">
+    <form target= "_blank" v-on:submit="updateCert()">
       <div class="certs">
           <label for="certAgency">Agency:</label>
-          <input type="text" v-model="newCert.agency" class="form-control" id="certAgency" required>
+          <input type="text" v-model="activecert.agency" class="form-control" id="certAgency" required>
           <label for="certName">Name:</label>
-          <input type="text" v-model="newCert.name" class="form-control" id="certName" required>
+          <input type="text" v-model="activecert.name" class="form-control" id="certName" required>
           <label for="certCity">City:</label>
-          <input type="text" v-model="newCert.city" class="form-control" id="certCity" required>
+          <input type="text" v-model="activecert.city" class="form-control" id="certCity" required>
           <label for="certExpPeriod">Expiration Period:</label>
-          <input type="text" v-model="newCert.expirationPeriod" class="form-control" id="certExpPeriod" required>
+          <input type="text" v-model="activecert.expirationPeriod" class="form-control" id="certExpPeriod" required>
           <input onclick="window.location.href = 'view_certifications.html';" class="btn btn-primary" type="submit" value="Edit Certs" required>
       </div>
   <br/>
