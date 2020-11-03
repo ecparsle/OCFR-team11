@@ -20,6 +20,7 @@ $stmt = $db->prepare(
 );
 
 $stmt->execute([
+  $_POST['certificationID'],
   $_POST['agency'],
   $_POST['name'],
   $_POST['city'],
